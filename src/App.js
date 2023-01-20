@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 
 function App() {
+  const responseFacebook = (response) => {
+    console.log(response);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FacebookLogin
+        appId="1218678432397803"
+        autoLoad
+        callback={responseFacebook}
+        render={(renderProps) => (
+          <button onClick={renderProps.onClick}>
+            This is my custom FB button
+          </button>
+        )}
+      />
     </div>
   );
 }
 
 export default App;
+
