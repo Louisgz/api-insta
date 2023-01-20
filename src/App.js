@@ -12,6 +12,7 @@ function App() {
         appId="1218678432397803"
         autoLoad
         callback={responseFacebook}
+        scope="instagram_basic,pages_show_list"
         render={(renderProps) => (
           <button onClick={renderProps.onClick}>
             This is my custom FB button
